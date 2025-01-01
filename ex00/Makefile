@@ -1,7 +1,7 @@
-NAME = ClapTrap
+NAME = Kanonik
 
 SRCS =	main.cpp \
-		ClapTrap.cpp
+		Fixed.cpp
 
 OBJ_DIR = .objs
 

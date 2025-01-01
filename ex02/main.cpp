@@ -1,28 +1,44 @@
-#include "ClapTrap.hpp"
-#include "FragTrap.hpp"
+#include "Fixed.hpp"
 
-int main()
+int main(void)
 {
-	ClapTrap clapTrap("Grandpa");
-	FragTrap fragTrap("Fraggy");
+	Fixed a(10);
+	Fixed b(20.4f);
+	Fixed c;
 
-	clapTrap.attack("target");
-	clapTrap.takeDamage(10);
-	clapTrap.beRepaired(5);
-	std::cout << clapTrap.getName() << std::endl;
-	std::cout << clapTrap.getHitPoints() << std::endl;
-	std::cout << clapTrap.getEnergyPoints() << std::endl;
-	std::cout << clapTrap.getAttackDamage() << std::endl;
 
-	fragTrap.attack("Big target");
-	fragTrap.takeDamage(10);
-	fragTrap.beRepaired(5);
-	std::cout << fragTrap.getName() << std::endl;
-	std::cout << fragTrap.getHitPoints() << std::endl;
-	std::cout << fragTrap.getEnergyPoints() << std::endl;
-	std::cout << fragTrap.getAttackDamage() << std::endl;
-	fragTrap.highFivesGuys();
-	fragTrap.takeDamage(100);
-	clapTrap.takeDamage(100);
+	std::cout << "----------=VALUE=----------" << std::endl;
+
+	std::cout << "a = " << a << std::endl;
+	std::cout << "b = " << b << std::endl;
+	std::cout << "c = " << c << std::endl;
+
+	std::cout << "\n---------=COMPARE=---------" << std::endl;
+
+	std::cout << "a > b = " << (a > b) << std::endl;
+	std::cout << "a < b = " << (a < b) << std::endl;
+	std::cout << "a >= b = " << (a >= b) << std::endl;
+	std::cout << "a <= b = " << (a <= b) << std::endl;
+	std::cout << "a == b = " << (a == b) << std::endl;
+	std::cout << "a != b = " << (a != b) << std::endl;
+
+	std::cout << "\n--------=OPERATORS=--------" << std::endl;
+	c = a + b;
+	std::cout << "a + b = " << c << std::endl;
+	c = a - b;
+	std::cout << "a - b = " << c << std::endl;
+	c = a * b;
+	std::cout << "a * b = " << c << std::endl;
+	c = a / b;
+	std::cout << "a / b = " << c << std::endl;
+
+	std::cout << "\n--------=INCREMENT=--------" << std::endl;
+
+	std::cout << "a = " << a << std::endl;
+	std::cout << "a++ = " << a++ << std::endl;
+	std::cout << "a-- = " << a-- << std::endl;
+	std::cout << "a = " << a << std::endl;
+	std::cout << "++a = " << ++a << std::endl;
+	std::cout << "--a = " << --a << std::endl;
 	return 0;
 }

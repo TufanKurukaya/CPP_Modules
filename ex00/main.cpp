@@ -1,14 +1,15 @@
-#include "ClapTrap.hpp"
+#include "Fixed.hpp"
 
-int main()
+int main( void )
 {
-	ClapTrap bob("BOB");
-	ClapTrap non("NON");
-	ClapTrap coc(non);
-
-	bob.attack("NON");
-	non.takeDamage(5);
-	non.beRepaired(3);
+	Fixed a;
+	Fixed b( a );
+	Fixed c;
+	b.setRawBits(10);
+	c = b;
+	std::cout << a.getRawBits() << std::endl;
+	std::cout << b.getRawBits() << std::endl;
+	std::cout << c.getRawBits() << std::endl;
 
 	return 0;
 }

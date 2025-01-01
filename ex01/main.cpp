@@ -1,26 +1,20 @@
-#include "ClapTrap.hpp"
-#include "ScavTrap.hpp"
+#include "Fixed.hpp"
 
-int main()
+int main(void)
 {
-	ScavTrap scavTrap("Tutmac");
-	ClapTrap clapTrap("Brakmac");
+	Fixed a;
+	Fixed const b(10);
+	Fixed const c(42.42f);
+	Fixed const d(b);
+	a = Fixed(1234.4321f);
+	std::cout << a << std::endl;
+	std::cout << b << std::endl;
+	std::cout << c << std::endl;
+	std::cout << d << std::endl;
+	std::cout << "a is " << a.toInt() << " as integer" << std::endl;
+	std::cout << "b is " << b.toInt() << " as integer" << std::endl;
+	std::cout << "c is " << c.toInt() << " as integer" << std::endl;
+	std::cout << "d is " << d.toInt() << " as integer" << std::endl;
 
-	clapTrap.attack("target");
-	clapTrap.takeDamage(10);
-	clapTrap.beRepaired(5);
-	std::cout << "Name          =: " << clapTrap.getName() << std::endl;
-	std::cout << "Hit points    =: " << clapTrap.getHitPoints() << std::endl;
-	std::cout << "Energy points =: " << clapTrap.getEnergyPoints() << std::endl;
-	std::cout << "Attack damage =: " << clapTrap.getAttackDamage() << std::endl;
-	scavTrap.attack("Big target");
-	scavTrap.takeDamage(100);
-	scavTrap.attack("");
-	scavTrap.takeDamage(10);
-	scavTrap.beRepaired(5);
-	scavTrap.guardGate();
-	std::cout << "Name          =: " << scavTrap.getName() << std::endl;
-	std::cout << "Hit points    =: " << scavTrap.getHitPoints() << std::endl;
-	std::cout << "Energy points =: " << scavTrap.getEnergyPoints() << std::endl;
-	std::cout << "Attack damage =: " << scavTrap.getAttackDamage() << std::endl;
+	return 0;
 }

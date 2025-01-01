@@ -1,8 +1,7 @@
-NAME = FragTrap
+NAME = Operator
 
 SRCS =	main.cpp \
-		ClapTrap.cpp \
-		FragTrap.cpp
+		Fixed.cpp
 
 OBJ_DIR = .objs
 

@@ -1,8 +1,7 @@
-NAME = ScavTrap
+NAME = Fixed
 
-SRCS =	main.cpp		\
-		ClapTrap.cpp	\
-		ScavTrap.cpp
+SRCS =	main.cpp \
+		Fixed.cpp
 
 OBJ_DIR = .objs
 
