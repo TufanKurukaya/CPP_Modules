@@ -1,9 +1,6 @@
-NAME = zombie
+NAME = megaphone
 
-SRCS =	main.cpp \
-		newZombie.cpp \
-		randomChump.cpp \
-		Zombie.cpp \
+SRCS =	megaphone.cpp
 
 OBJ_DIR = .objs
 

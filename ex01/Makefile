@@ -1,14 +1,15 @@
-NAME = zombieHorde
+NAME = phonebook
 
-SRCS =	main.cpp \
-		Zombie.cpp \
-		zombieHorde.cpp
+SRCS =	PhoneBook.cpp	\
+		Contact.cpp		\
+		main.cpp		\
 
 OBJ_DIR = .objs
 
 OBJS = $(addprefix $(OBJ_DIR)/, $(SRCS:.cpp=.o))
 
 CXX = c++
+CP = cp
 
 CXXFLAGS = -Wall -Wextra -Werror -std=c++98
 
@@ -16,7 +17,7 @@ all: $(NAME)
 
 $(NAME): $(OBJS)
 	@$(CXX) $(CXXFLAGS) -o $(NAME) $(OBJS)
-	@cp $(NAME) ../
+	@$(CP) $(NAME) ../
 
 $(OBJ_DIR)/%.o: %.cpp
 	@mkdir -p $(@D)
