@@ -1,7 +1,7 @@
-NAME = template
+NAME = convert
 
 SRCS =	main.cpp \
-
+		ScalarConverter.cpp
 OBJ_DIR = .objs
 
 OBJS = $(addprefix $(OBJ_DIR)/, $(SRCS:.cpp=.o))

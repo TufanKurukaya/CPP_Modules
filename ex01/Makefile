@@ -1,6 +1,7 @@
-NAME = iter
+NAME = serializer
 
 SRCS =	main.cpp \
+		Serializer.cpp
 
 OBJ_DIR = .objs
 

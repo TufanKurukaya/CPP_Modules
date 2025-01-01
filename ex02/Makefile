@@ -1,6 +1,7 @@
-NAME = array
+NAME = base
 
 SRCS =	main.cpp \
+		Base.cpp
 
 OBJ_DIR = .objs
 
