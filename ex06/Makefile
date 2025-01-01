@@ -1,8 +1,7 @@
-NAME = zombieHorde
+NAME = harlFilter
 
 SRCS =	main.cpp \
-		Zombie.cpp \
-		zombieHorde.cpp
+		Harl.cpp
 
 OBJ_DIR = .objs
 
@@ -16,7 +15,7 @@ all: $(NAME)
 
 $(NAME): $(OBJS)
 	@$(CXX) $(CXXFLAGS) -o $(NAME) $(OBJS)
-	@cp $(NAME) ../
+	@cp $(NAME) ../$(NAME)
 
 $(OBJ_DIR)/%.o: %.cpp
 	@mkdir -p $(@D)
@@ -33,3 +32,4 @@ fclean: clean
 re: fclean all
 
 .PHONY: all clean fclean re
+

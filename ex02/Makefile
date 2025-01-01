@@ -1,7 +1,7 @@
-NAME = Operator
+NAME = brain
 
 SRCS =	main.cpp \
-		Fixed.cpp
+
 
 OBJ_DIR = .objs
 

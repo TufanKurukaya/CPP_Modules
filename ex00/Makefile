@@ -1,7 +1,9 @@
-NAME = Kanonik
+NAME = zombie
 
 SRCS =	main.cpp \
-		Fixed.cpp
+		newZombie.cpp \
+		randomChump.cpp \
+		Zombie.cpp \
 
 OBJ_DIR = .objs
 

@@ -1,15 +1,30 @@
-#include "Fixed.hpp"
+#include "Zombie.hpp"
 
-int main( void )
+int main()
 {
-	Fixed a;
-	Fixed b( a );
-	Fixed c;
-	b.setRawBits(10);
-	c = b;
-	std::cout << a.getRawBits() << std::endl;
-	std::cout << b.getRawBits() << std::endl;
-	std::cout << c.getRawBits() << std::endl;
-
-	return 0;
+	{
+		Zombie zom("CLARC");
+		randomChump("Karen");
+		zom.announce();
+	}
+	{
+		std::cout << "---------------------------------" << std::endl;
+		Zombie zom;
+		zom.announce();
+		zom.setName("Nancy");
+		zom.announce();
+	}
+	{
+		std::cout << "---------------------------------" << std::endl;
+		Zombie *zom = newZombie("kent");
+		zom->announce();
+		delete zom;
+		randomChump("Karen");
+	}
+	{
+		std::cout << "---------------------------------" << std::endl;
+		Zombie("Melina").announce();
+		Zombie zom("Dead");
+		zom.announce();
+	}
 }
