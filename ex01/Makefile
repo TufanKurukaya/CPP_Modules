@@ -1,7 +1,6 @@
-NAME = span
+NAME = iter
 
 SRCS =	main.cpp \
-		Span.cpp
 
 OBJ_DIR = .objs
 

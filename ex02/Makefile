@@ -1,4 +1,4 @@
-NAME = mutuantstack
+NAME = array
 
 SRCS =	main.cpp \
 

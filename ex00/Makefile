@@ -1,4 +1,4 @@
-NAME = easyfind
+NAME = template
 
 SRCS =	main.cpp \
 
