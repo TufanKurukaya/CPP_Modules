@@ -1,11 +1,7 @@
-NAME = Animal
+NAME = ClapTrap
 
-SRCS =	Animal.cpp		\
-		Cat.cpp			\
-		Dog.cpp			\
-		main.cpp		\
-		WrongCat.cpp	\
-		WrongAnimal.cpp
+SRCS =	main.cpp \
+		ClapTrap.cpp
 
 OBJ_DIR = .objs
 

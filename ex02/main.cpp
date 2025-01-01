@@ -1,31 +1,28 @@
-#include "Animal.hpp"
-#include "Dog.hpp"
-#include "Cat.hpp"
-#include "Brain.hpp"
+#include "ClapTrap.hpp"
+#include "FragTrap.hpp"
+
 int main()
 {
-	{
-		cout << GREEN << "----------====EXIRCISE I====----------\n" << PURPLE << endl;
-		try
-		{
-			const Animal* dog = new Dog();
-			const Animal* cat = new Cat();
+	ClapTrap clapTrap("Grandpa");
+	FragTrap fragTrap("Fraggy");
 
+	clapTrap.attack("target");
+	clapTrap.takeDamage(10);
+	clapTrap.beRepaired(5);
+	std::cout << clapTrap.getName() << std::endl;
+	std::cout << clapTrap.getHitPoints() << std::endl;
+	std::cout << clapTrap.getEnergyPoints() << std::endl;
+	std::cout << clapTrap.getAttackDamage() << std::endl;
 
-			std::cout << dog->getType() << " " << std::endl;
-			std::cout << cat->getType() << " " << std::endl;
-
-			dog->makeSound(); // "Woof!" gibi bir ses
-			cat->makeSound(); // "Meow!" gibi bir ses
-
-			// Belleği temizleyelim
-			delete dog;
-			delete cat;
-		}
-		catch(const std::bad_alloc& e)
-		{
-			std::cerr << e.what() << '\n';
-		}
-	}
-	cout << RESET;
+	fragTrap.attack("Big target");
+	fragTrap.takeDamage(10);
+	fragTrap.beRepaired(5);
+	std::cout << fragTrap.getName() << std::endl;
+	std::cout << fragTrap.getHitPoints() << std::endl;
+	std::cout << fragTrap.getEnergyPoints() << std::endl;
+	std::cout << fragTrap.getAttackDamage() << std::endl;
+	fragTrap.highFivesGuys();
+	fragTrap.takeDamage(100);
+	clapTrap.takeDamage(100);
+	return 0;
 }

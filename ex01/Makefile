@@ -1,17 +1,16 @@
-NAME = Brain
+NAME = ScavTrap
 
-SRCS =	Animal.cpp	\
-		Cat.cpp		\
-		Dog.cpp		\
-		main.cpp	\
-		Brain.cpp
+SRCS =	main.cpp		\
+		ClapTrap.cpp	\
+		ScavTrap.cpp
+
 OBJ_DIR = .objs
 
 OBJS = $(addprefix $(OBJ_DIR)/, $(SRCS:.cpp=.o))
 
 CXX = c++
 
-CXXFLAGS = -Wall -Wextra -Werror -std=c++98 -g
+CXXFLAGS = -Wall -Wextra -Werror -std=c++98
 
 all: $(NAME)
 
