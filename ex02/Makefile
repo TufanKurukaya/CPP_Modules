@@ -1,12 +1,10 @@
-NAME = AForm
+NAME = Abstract
 
-SRCS =	main.cpp \
-		Bureaucrat.cpp \
-		AForm.cpp \
-		ShrubberyCreationForm.cpp \
-		RobotomyRequestForm.cpp \
-		PresidentialPardonForm.cpp
-
+SRCS =	Animal.cpp	\
+		Cat.cpp		\
+		Dog.cpp		\
+		main.cpp	\
+		Brain.cpp
 OBJ_DIR = .objs
 
 OBJS = $(addprefix $(OBJ_DIR)/, $(SRCS:.cpp=.o))

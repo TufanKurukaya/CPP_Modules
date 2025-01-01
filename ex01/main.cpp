@@ -1,54 +1,90 @@
-#include "Bureaucrat.hpp"
-#include <iostream>
-
+#include "Animal.hpp"
+#include "Dog.hpp"
+#include "Cat.hpp"
+#include "Brain.hpp"
 int main()
 {
 	{
+		cout << GREEN << "----------====EXIRCISE I====----------\n" << PURPLE << endl;
 		try
 		{
-			Form form("Form", 1, 1);
-			Bureaucrat bob("Bob", 2);
-			bob.signForm(form);
-			bob.incrementGrade();
-			cout << bob << endl;
-			cout << form << endl;
+			const Animal *j = new Dog();
+			const Animal *i = new Cat();
+			delete j; // should not create a leak
+			delete i;
 		}
-		catch(const std::exception& e)
+		catch(const std::bad_alloc& e)
 		{
-			cout << e.what() << '\n';
+			std::cerr << e.what() << '\n';
 		}
-	}
-	cout << endl;
-	{
-		try
-		{
-			Form form("Form", 1, 1);
-			Bureaucrat bob("Bob", 1);
-			bob.signForm(form);
-			cout << bob << endl;
-			cout << form << endl;
-		}
-		catch(const std::exception& e)
-		{
-			cout << e.what() << '\n';
-		}
-	}
-	cout << endl;
-	{
-		try
-		{
-			Form form("Form", 150, 1);
-			Bureaucrat bob("Bob", 150);
-			bob.signForm(form);
-			cout << bob << endl;
-			cout << form << endl;
-			bob.signForm(form);
-		}
-		catch(const std::exception& e)
-		{
-			cout << e.what() << '\n';
-		}
-	}
 
+	}
+	{
+		cout << GREEN << "\n----------====EXIRCISE II====---------\n"
+			 << ORANGE << endl;
+		try
+		{
+			const Animal *j = new Dog();
+			const Animal *i = new Cat();
+			const Dog *y = new Dog();
+			const Cat *x = new Cat();
+			j->makeSound();
+			i->makeSound();
+			delete i;
+			delete j;
+			j = x;
+			i = y;
+			j->makeSound();
+			i->makeSound();
+			delete x;
+			delete y;
+		}
+		catch (std::bad_alloc &e)
+		{
+			std::cerr << e.what() << '\n';
+		}
+	}
+	{
+		cout << GREEN << "\n---------====EXIRCISE III====---------\n" << ORANGE << endl;
+		size_t count = 10;
+		Animal *animals[count];
+		try
+		{
+			for (size_t i = 0; i < count; i++)
+			{
+				if (i % 2 == 0)
+					animals[i] = new Dog();
+				else
+					animals[i] = new Cat();
+			}
+		}
+		catch(const std::bad_alloc& e)
+		{
+			std::cerr << e.what() << '\n';
+		}
+		std::cout <<  BLUE << "-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-" << std::endl;
+		for (size_t i = 0; i < count; i++)
+			animals[i]->makeSound();
+		std::cout <<  RED << "-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-" << std::endl;
+		for (size_t i = 0; i < count; i++)
+			delete animals[i];
+	}
+	{
+		cout << GREEN << "\n---------====EXIRCISE IV====---------\n" << ORANGE << endl;
+		Dog a;
+		Cat b;
 
+		Brain bcat;
+		Brain bdog;
+		bcat.setIdea(0, "I'm a cat");
+		bcat.setIdea(2, "I'm a cat");
+		bdog.setIdea(0, "I'm a dog");
+		bdog.setIdea(2, "I'm a dog");
+		a.setBrain(bdog);
+		b.setBrain(bcat);
+		a.printIdeas();
+		b.printIdeas();
+
+	}
+	cout << RESET;
 }

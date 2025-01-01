@@ -1,8 +1,10 @@
-NAME = Form
+NAME = Brain
 
-SRCS =	main.cpp \
-		Bureaucrat.cpp \
-		Form.cpp
+SRCS =	Animal.cpp	\
+		Cat.cpp		\
+		Dog.cpp		\
+		main.cpp	\
+		Brain.cpp
 OBJ_DIR = .objs
 
 OBJS = $(addprefix $(OBJ_DIR)/, $(SRCS:.cpp=.o))

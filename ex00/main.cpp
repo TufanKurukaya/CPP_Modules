@@ -1,45 +1,42 @@
-#include "Bureaucrat.hpp"
-#include <iostream>
+#include "Animal.hpp"
+#include "Dog.hpp"
+#include "Cat.hpp"
+#include "WrongAnimal.hpp"
+#include "WrongCat.hpp"
 
 int main()
 {
-	try
 	{
-		Bureaucrat bob("Bob", 2);
-		cout << bob << endl;
-		bob.incrementGrade();
-		cout << "After increment: " << bob << endl;
-		bob.incrementGrade();
-	}
-	catch (const std::exception &e) {
-		cout << "Caught an exception: " << e.what() << endl;
-	}
-	
-	cout << endl;
+		cout << GREEN << "----------====EXIRCISE I====----------\n" << PURPLE << endl;
 
-	try
+		Dog Kangal;
+		Cat VanKedisi;
+		Kangal.makeSound();
+		VanKedisi.makeSound();
+	}
 	{
-		Bureaucrat jim("Jim", 151);
-		cout << jim << endl;
+		cout << GREEN << "\n----------====EXIRCISE II====---------\n" << ORANGE << endl;
+		const Animal *meta = new Animal();
+		const Animal *j = new Dog();
+		const Animal *i = new Cat();
+		std::cout << j->getType() << " " << std::endl;
+		std::cout << i->getType() << " " << std::endl;
+		i->makeSound(); // will output the cat sound!
+		j->makeSound();
+		meta->makeSound();
+		delete meta;
+		delete j;
+		delete i;
 	}
-	catch (const std::exception &e) {
-		cout << "Caught an exception while creating Jim: " << e.what() << endl;
-	}
-
-	cout << endl;
-
-	try
 	{
-		Bureaucrat alice("Alice", 149);
-		cout << alice << endl;
-		alice.decrementGrade();
-		cout << "After decrement: " << alice << endl;
-		alice.decrementGrade();
+		cout << GREEN << "\n----------====EXIRCISE II====---------\n" << ORANGE << endl;
+		const WrongAnimal *meta = new WrongAnimal();
+		const WrongAnimal *i = new WrongCat();
+		std::cout << i->getType() << " " << std::endl;
+		i->makeSound(); // will output the Worng animal sound!
+		meta->makeSound();
+		delete meta;
+		delete i;
 	}
-	catch (const std::exception &e)
-	{
-		cout << "Caught an exception: " << e.what() << endl;
-	}
-
-	return 0;
+	cout << RESET;
 }

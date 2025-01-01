@@ -1,7 +1,11 @@
-NAME = Bureaucrat
+NAME = Animal
 
-SRCS =	main.cpp \
-		Bureaucrat.cpp
+SRCS =	Animal.cpp		\
+		Cat.cpp			\
+		Dog.cpp			\
+		main.cpp		\
+		WrongCat.cpp	\
+		WrongAnimal.cpp
 
 OBJ_DIR = .objs
 
@@ -9,7 +13,7 @@ OBJS = $(addprefix $(OBJ_DIR)/, $(SRCS:.cpp=.o))
 
 CXX = c++
 
-CXXFLAGS = -Wall -Wextra -Werror -std=c++98 -g
+CXXFLAGS = -Wall -Wextra -Werror -std=c++98
 
 all: $(NAME)
 

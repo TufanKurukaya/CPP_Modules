@@ -1,42 +1,31 @@
-#include "Bureaucrat.hpp"
-#include "ShrubberyCreationForm.hpp"
-#include "RobotomyRequestForm.hpp"
-#include "PresidentialPardonForm.hpp"
-#include <iostream>
+#include "Animal.hpp"
+#include "Dog.hpp"
+#include "Cat.hpp"
+#include "Brain.hpp"
+int main()
+{
+	{
+		cout << GREEN << "----------====EXIRCISE I====----------\n" << PURPLE << endl;
+		try
+		{
+			const Animal* dog = new Dog();
+			const Animal* cat = new Cat();
 
-int main() {
-	try {
-		Bureaucrat highRank("Alice", 1);
-		Bureaucrat lowRank("Bob", 150);
 
-		ShrubberyCreationForm shrubbery("Home");
-		RobotomyRequestForm robotomy("Bender");
-		PresidentialPardonForm pardon("Zaphod");
+			std::cout << dog->getType() << " " << std::endl;
+			std::cout << cat->getType() << " " << std::endl;
 
-		cout << shrubbery << "\n" << endl;
-		cout << robotomy << "\n" << endl;
-		cout << pardon << "\n" << endl;
+			dog->makeSound(); // "Woof!" gibi bir ses
+			cat->makeSound(); // "Meow!" gibi bir ses
 
-		cout << "\n-- Formları İmzalama --" << endl;
-		lowRank.signForm(shrubbery);
-		highRank.signForm(shrubbery);
-		highRank.signForm(robotomy);
-		highRank.signForm(pardon);
-		highRank.signForm(pardon);
-		cout << endl;
-		cout << shrubbery << "\n" << endl;
-		cout << robotomy << "\n" << endl;
-		cout << pardon << "\n" << endl;
-
-		cout << "\n-- Formları Yürütme --" << endl;
-		lowRank.executeForm(shrubbery);
-		highRank.executeForm(shrubbery);
-		highRank.executeForm(robotomy);
-		highRank.executeForm(pardon);
-		cout << endl;
-	} catch (const std::exception &e) {
-		cout << "Hata: " << e.what() << endl;
+			// Belleği temizleyelim
+			delete dog;
+			delete cat;
+		}
+		catch(const std::bad_alloc& e)
+		{
+			std::cerr << e.what() << '\n';
+		}
 	}
-
-	return 0;
+	cout << RESET;
 }
