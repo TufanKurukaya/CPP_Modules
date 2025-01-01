@@ -1,22 +1,54 @@
-#include "Serializer.hpp"
-#include <cstdio>
+#include "Bureaucrat.hpp"
+#include <iostream>
+
 int main()
 {
-	Data* original = new Data();
-	original->_value = 42;
-	original->_name = "Deneme";
-
-	uintptr_t serializer = Serializer::serialize(original);
-	cout << "Serializer: " << serializer << endl;
-	Data* deSerializer = Serializer::deserialize(serializer);
-	if (original == deSerializer)
 	{
-		cout << "Deserialization başarılı!" << endl;
-		cout << "Value	: " << deSerializer->_value << endl;
-		cout << "Name	: " << deSerializer->_name << endl;
+		try
+		{
+			Form form("Form", 1, 1);
+			Bureaucrat bob("Bob", 2);
+			bob.signForm(form);
+			bob.incrementGrade();
+			cout << bob << endl;
+			cout << form << endl;
+		}
+		catch(const std::exception& e)
+		{
+			cout << e.what() << '\n';
+		}
 	}
-	else
-		cout << "Hata: Adresler uyuşmuyor." << endl;
-	delete original;
-	return 0;
+	cout << endl;
+	{
+		try
+		{
+			Form form("Form", 1, 1);
+			Bureaucrat bob("Bob", 1);
+			bob.signForm(form);
+			cout << bob << endl;
+			cout << form << endl;
+		}
+		catch(const std::exception& e)
+		{
+			cout << e.what() << '\n';
+		}
+	}
+	cout << endl;
+	{
+		try
+		{
+			Form form("Form", 150, 1);
+			Bureaucrat bob("Bob", 150);
+			bob.signForm(form);
+			cout << bob << endl;
+			cout << form << endl;
+			bob.signForm(form);
+		}
+		catch(const std::exception& e)
+		{
+			cout << e.what() << '\n';
+		}
+	}
+
+
 }

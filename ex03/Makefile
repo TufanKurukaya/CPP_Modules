@@ -1,11 +1,12 @@
-NAME = AForm
+NAME = Intern
 
 SRCS =	main.cpp \
 		Bureaucrat.cpp \
 		AForm.cpp \
 		ShrubberyCreationForm.cpp \
 		RobotomyRequestForm.cpp \
-		PresidentialPardonForm.cpp
+		PresidentialPardonForm.cpp \
+		Intern.cpp
 
 OBJ_DIR = .objs
 

@@ -1,7 +1,8 @@
-NAME = convert
+NAME = Bureaucrat
 
 SRCS =	main.cpp \
-		ScalarConverter.cpp
+		Bureaucrat.cpp
+
 OBJ_DIR = .objs
 
 OBJS = $(addprefix $(OBJ_DIR)/, $(SRCS:.cpp=.o))
